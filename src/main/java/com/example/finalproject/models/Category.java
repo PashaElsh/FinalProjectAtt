@@ -1,9 +1,8 @@
 package com.example.finalproject.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Category {
@@ -13,4 +12,30 @@ public class Category {
 
    private String name;
 
+   @OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
+   private List<Product> products;
+
+   public int getId() {
+      return id;
+   }
+
+   public void setId(int id) {
+      this.id = id;
+   }
+
+   public String getName() {
+      return name;
+   }
+
+   public void setName(String name) {
+      this.name = name;
+   }
+
+   public List<Product> getProducts() {
+      return products;
+   }
+
+   public void setProducts(List<Product> products) {
+      this.products = products;
+   }
 }

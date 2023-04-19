@@ -32,13 +32,18 @@ public class MainController {
         //получаем объект, который был положен в данную сессию после  аутентификации пользователя
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        PersonDetails personDetails = (PersonDetails) authentication.getPrincipal();
+        PersonDetails personDetails = (PersonDetails) authentication.getPrincipal();// Объект пользователя из объекта аутификации
 
-        System.out.println(personDetails.getPerson());
-        System.out.println("ID пользователя: " + personDetails.getPerson().getId());
-        System.out.println("Логин пользователя: " + personDetails.getPerson().getLogin());
-        System.out.println("Пароль пользователя: " + personDetails.getPerson().getPassword());
-        System.out.println(personDetails);
+        String role = personDetails.getPerson().getRole(); // Извлекаем персона и извлекаем пароль
+        if (role.equals("ROLE_ADMIN")){
+            return "redirect:/admin";
+        }
+
+//        System.out.println(personDetails.getPerson());
+//        System.out.println("ID пользователя: " + personDetails.getPerson().getId());
+//        System.out.println("Логин пользователя: " + personDetails.getPerson().getLogin());
+//        System.out.println("Пароль пользователя: " + personDetails.getPerson().getPassword());
+//        System.out.println(personDetails);
         return "index";
     }
 

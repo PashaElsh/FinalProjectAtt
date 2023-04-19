@@ -1,10 +1,10 @@
 package com.example.finalproject.controllers;
 
-import com.example.finalproject.models.Person;
+import com.example.finalproject.models.Product;
+import com.example.finalproject.repositories.CategoryRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
 public class AuthenticationController {
