@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<body>
+<h3>Приложение для итоговой аттестации</h3>
+<a href="/authentication">Выйти из личного кабинета </a>
+<form method="post" action="/logout"> /authentication /logout
+    <button type="submit">Выйти из личного кабинета</button>
+</form>
+<h3>Главная страница магазина</h3>
+<h3> Доступные товары:</h3>
+<div th:each="product : ${products}">
+    <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="300px">
+    <br>
+    <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}"></a>
+    <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+    <hr>
+</div>
+</body>
+</html>
+
+

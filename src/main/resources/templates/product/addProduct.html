@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Добавление товара</title>
+    <link th:href="@{/css/index.css}" type="text/css" rel="stylesheet">
 </head>
 <body>
 <h3>Добавление товара</h3>
@@ -38,6 +39,7 @@
     <br>
     <label for="seller">Введите данные о продавце</label>
     <textarea th:field="*{seller}" placeholder="Продавец" id="seller"></textarea>
+    <div style="color: red" th:if="${#fields.hasErrors('seller')}" th:errors="*{seller}"></div>
     <br>
     <br>
     <p style="color: red">Вы можете добавить до 5 фотографий. Первая фотография не может быть пустой тк она будет являться главной при выводе карточки товара</p>
