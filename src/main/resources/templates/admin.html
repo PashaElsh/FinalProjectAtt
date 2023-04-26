@@ -9,11 +9,15 @@
 <h1>Личный кабинет админа</h1>
 <form method="post" action="/authentication">
     <a href="/authentication">Выйти из личного кабинета </a>
+    <!--<button type="submit">Выйти из личного кабинета</button>-->
+</form>
+<form method="post" th:action="@{/logout}"> /authentication /logout
     <button type="submit">Выйти из личного кабинета</button>
 </form>
 <a href="admin/product/add">Добавить товар</a>
 <hr>
 <div th:each="product : ${products}">
+    <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="300px">
     <p th:text="'Наименование: ' + ${product.getTitle()}"></p>
     <p th:text="'Описание: ' + ${product.getDescription()}"></p>
     <p th:text="'Цена: ' + ${product.getPrice()}"></p>

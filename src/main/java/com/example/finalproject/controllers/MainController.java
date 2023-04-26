@@ -143,7 +143,7 @@ public class MainController {
 
     }
 
-    @GetMapping("/cart/add{id}")
+    @GetMapping("/cart/add/{id}")
     public String addProductInCart(@PathVariable("id") int id, Model model){
         // Получаем продукт по ID
         Product product = productService.getProductId(id);
@@ -161,6 +161,7 @@ public class MainController {
 
     @GetMapping("/cart")
     public String cart(Model model){
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         PersonDetails personDetails = (PersonDetails) authentication.getPrincipal();
 
