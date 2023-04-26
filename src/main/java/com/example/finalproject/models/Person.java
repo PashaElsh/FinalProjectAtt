@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.JoinColumnOrFormula;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -26,6 +27,13 @@ public class Person {
 
     @Column(name = "role")
     private String role;
+
+    @ManyToMany()
+    @JoinTable(name = "product_cart", joinColumns = @JoinColumn(name = "person_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
+    private List<Product> productList;
+
+    @OneToMany(mappedBy = "person", fetch = FetchType.EAGER) // настроили свзяь с точки зрения модкли person
+    private List<Order> orderList;
 
     public int getId() {
         return id;

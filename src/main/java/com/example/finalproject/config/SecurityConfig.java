@@ -40,7 +40,7 @@ public class SecurityConfig  {
                 // указываем что для всех остальных страниц необходимо вызывать метод authentitication(), который открывает форму аутентификации
 //                .anyRequest().authenticated()
                 .requestMatchers("/admin").hasRole("ADMIN")//указываем на то что страница /admin доступна с ролью ADMIN
-                .requestMatchers("/authentication", "/registration", "/error", "/resources/**","static/**", "/css/**", "/js/**", "/img/**", "/product", "/product/info/{id}").permitAll()// страница доступна всем пользователям
+                .requestMatchers("/authentication", "/registration", "/error", "/resources/**","static/**", "/css/**", "/js/**", "/img/**", "/product", "/product/info/{id}", "/product/search").permitAll()// страница доступна всем пользователям
                 .anyRequest().hasAnyRole("USER", "ADMIN")
                 .and() // указываем что дальше настраивается аутен и соединяем ее с настройкой доступа
                 .formLogin().loginPage("/authentication") // указываем какой url запрос будет отправляться при заходе на защищенные страницы

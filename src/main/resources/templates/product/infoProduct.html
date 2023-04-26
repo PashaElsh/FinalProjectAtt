@@ -12,8 +12,11 @@
 <p th:text="'Склад: ' + ${product.getWarehouse()}"></p>
 <p th:text="'Продавец: ' + ${product.getSeller()}"></p>
 <p th:text="'Категория: ' + ${product.getCategory().getName()}"></p>
+<a href="/product">Назад</a>
 <div th:each="img : ${product.getImageList()}">
 <img th:src="'/img/' + ${img.getFileName()}">
 </div>
+<hr>
+<a href="/product">Назад</a>
 </body>
 </html>
